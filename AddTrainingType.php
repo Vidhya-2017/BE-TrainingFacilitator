@@ -7,9 +7,6 @@ header("Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token");
 $json = file_get_contents('php://input');
 $data = json_decode($json,true);
 
-$data['training_type'] = 'ILT1';
-$data['created_by'] = '1';
-$data['updated_by'] = '1';
 
 require_once 'include/dbconnect.php';
 
