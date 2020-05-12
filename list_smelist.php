@@ -14,7 +14,7 @@ require_once 'include/dbconnect.php';
    
 //  }
 $result_data = array();
-$query = "SELECT * FROM `skills_list` WHERE is_active='0' ";
+$query = "SELECT * FROM `sme_list` WHERE is_active='0' ";
 $result = mysqli_query($conn,$query);
 while($smelist = mysqli_fetch_assoc($result)){
 	$result_data[] = $smelist;
