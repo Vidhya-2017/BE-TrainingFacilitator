@@ -20,7 +20,7 @@ if(isset($data)){
     $is_active = $data['is_active'];
     $created_date= date('Y-m-d h:i:s');
     $created_by = "1";
- }user_registration
+ }
 
 $query = "INSERT INTO `user_registration` (sap_id,first_name,last_name,dob,gender,email,phone_number,is_active,created_date,created_by) VALUES ('$sap_id','$first_name','$last_name','$dob','$gender','$email','$phone_number','$is_active','$created_date','$created_by')";
 
