@@ -21,7 +21,7 @@ require_once 'include/dbconnect.php';
 	 $condition = "";
  }
 
-    $query = "SELECT * FROM external_training where is_active = '0' $condition";
+    $query = "SELECT * FROM external_training where is_active = '1' $condition";
 	$result = mysqli_query($conn,$query);
 	$externaltraining_details = [];
     
@@ -32,7 +32,7 @@ require_once 'include/dbconnect.php';
         $errcode = 200;
         $status = "Success";
     }else{
-        $errcode = 404;
+        $errcode = 400;
         $status = "Failure";
     }
 
