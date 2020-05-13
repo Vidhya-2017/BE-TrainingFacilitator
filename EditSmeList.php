@@ -14,12 +14,13 @@ if(isset($data)){
     $sapid = $data['sapid'];
     $name = $data['name'];
     $phone_number = $data['phone_number'];
+    $email_id = $data['email_id'];
     $updated_date= date('Y-m-d h:i:s');
     $updated_by = "1";
 
  }
 
-$query = "UPDATE `sme_list` SET name='$name',phone_number='$phone_number',sap_id='$sapid',updated_date='$updated_date',updated_by='$updated_by' WHERE id='$id'";
+$query = "UPDATE `sme_list` SET name='$name',phone_number='$phone_number',sap_id='$sapid',email_id='$email_id',updated_date='$updated_date',updated_by='$updated_by' WHERE id='$id'";
 
 $result = mysqli_query($conn,$query);
 if($result){

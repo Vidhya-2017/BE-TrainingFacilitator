@@ -12,11 +12,12 @@ if(isset($data)){
     $sapid = $data['sapid'];
     $name = $data['name'];
     $phone_number = $data['phone_number'];
+    $email_id = $data['email_id'];
     $created_date= date('Y-m-d h:i:s');
     $created_by = "1";
  }
 
-$query = "INSERT INTO `sme_list` (sap_id,name,phone_number,created_date,created_by) VALUES ('$sapid','$name','$phone_number','$created_date','$created_by')";
+$query = "INSERT INTO `sme_list` (sap_id,name,phone_number,email_id,created_date,created_by) VALUES ('$sapid','$name','$phone_number','$email_id','$created_date','$created_by')";
 
 $result = mysqli_query($conn,$query);
 if(mysqli_insert_id($conn)>0){
