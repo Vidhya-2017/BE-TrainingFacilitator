@@ -10,7 +10,7 @@ require_once 'include/dbconnect.php';
  if(isset($data['type'])){
 	$training_type = $data['type'];
  }else{
-	 $training_type = '';
+	 $training_type = '';     
  }
  
  if($training_type){
