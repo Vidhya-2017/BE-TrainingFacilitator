@@ -11,12 +11,11 @@ require_once 'include/dbconnect.php';
 
 if(isset($data)){    
     $role_name = $data['role_name'];
-    $is_active = $data['is_active'];
     $created_date= date('Y-m-d h:i:s');
-    $created_by = "1";
+    $created_by = $data['created_by'];
  }
 
-$query = "INSERT INTO `role_master` (role_name,is_active,created_date,created_by) VALUES ('$role_name','$is_active','$created_date','$created_by')";
+$query = "INSERT INTO `role_master` (role_name,created_date,created_by) VALUES ('$role_name','$created_date','$created_by')";
 
 $result = mysqli_query($conn,$query);
 if(mysqli_insert_id($conn)>0){

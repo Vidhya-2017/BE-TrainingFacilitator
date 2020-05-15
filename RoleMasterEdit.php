@@ -20,8 +20,7 @@ if ($data['role_name']!='') {
     if ($total_records->num_rows == '0') {
         $query = "UPDATE `role_master` SET role_name='".$role_name."', is_active='".$is_active."', updated_by='".$updated_by."'
         updated_date='".$updated_date."' WHERE id='".$id."'";        
-        $result = mysqli_query($conn,$query);
-        
+        $result = mysqli_query($conn,$query);        
         $errcode = 200;
         $status = "Success";
 
