@@ -14,10 +14,7 @@ if(isset($data)){
     $skill_name = $data['skill_name'];
     $updated_date= date('Y-m-d h:i:s');
     $updated_by = "1";
-
- }
-
-$query = "UPDATE `skills_list` SET skill_name='$skill_name',updated_date='$updated_date',updated_by='$updated_by' WHERE id='$id'";
+    $query = "UPDATE `skills_list` SET skill_name='$skill_name',updated_date='$updated_date',updated_by='$updated_by' WHERE id='$id'";
 
 $result = mysqli_query($conn,$query);
 if($result){
@@ -25,6 +22,12 @@ if($result){
     $status = "Success";
     $smeList = "";
 }else{
+    $errcode = 404;
+    $status = "Failure";
+    $locId = "";
+}
+ }
+else{
     $errcode = 404;
     $status = "Failure";
     $locId = "";

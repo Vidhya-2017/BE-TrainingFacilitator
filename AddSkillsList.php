@@ -12,10 +12,8 @@ require_once 'include/dbconnect.php';
 if(isset($data)){
     $skill_name = $data['skill_name'];
     $created_date= date('Y-m-d h:i:s');
-    $created_by = "1";
- }
-
-$query = "INSERT INTO `skills_list` (skill_name,created_date,created_by) VALUES ('$skill_name','$created_date','$created_by')";
+    $created_by = $data['created_by'];
+    $query = "INSERT INTO `skills_list` (skill_name,created_date,created_by) VALUES ('$skill_name','$created_date','$created_by')";
 
 $result = mysqli_query($conn,$query);
 if(mysqli_insert_id($conn)>0){
@@ -25,7 +23,12 @@ if(mysqli_insert_id($conn)>0){
 }else{
     $errcode = 404;
     $status = "Failure";
-    $locId = "";
+}
+
+ }
+else{
+    $errcode = 404;
+    $status = "Failure";
 }
 
 echo $result = json_encode(array("errCode"=>$errcode,"status"=>$status,"arrRes" => $smeList));

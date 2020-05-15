@@ -12,10 +12,8 @@ require_once 'include/dbconnect.php';
 if(isset($data)){
     $mode = $data['mode'];
     $created_date= date('Y-m-d h:i:s');
-    $created_by = "1";
- }
-
-$query = "INSERT INTO `modes_list` (mode,created_date,created_by) VALUES ('$mode','$created_date','$created_by')";
+    $created_by = $data['created_by'];
+    $query = "INSERT INTO `modes_list` (mode,created_date,created_by) VALUES ('$mode','$created_date','$created_by')";
 
 $result = mysqli_query($conn,$query);
 if(mysqli_insert_id($conn)>0){
@@ -23,6 +21,12 @@ if(mysqli_insert_id($conn)>0){
     $status = "Success";
     $smeList = mysqli_insert_id($conn);
 }else{
+    $errcode = 404;
+    $status = "Failure";
+    $locId = "";
+}
+}
+else{
     $errcode = 404;
     $status = "Failure";
     $locId = "";

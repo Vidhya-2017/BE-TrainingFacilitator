@@ -16,9 +16,6 @@ if(isset($data)){
     $phone_number = $data['phone_number'];
     $updated_date= date('Y-m-d h:i:s');
     $updated_by = "1";
-
- }
-
 $query = "UPDATE `candidates_list` SET name='$name',phone_number='$phone_number',sap_id='$sapid',updated_date='$updated_date',updated_by='$updated_by' WHERE id='$id'";
 
 $result = mysqli_query($conn,$query);
@@ -27,6 +24,12 @@ if($result){
     $status = "Success";
     $smeList = "";
 }else{
+    $errcode = 404;
+    $status = "Failure";
+    $locId = "";
+}
+ }
+else{
     $errcode = 404;
     $status = "Failure";
     $locId = "";

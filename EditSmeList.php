@@ -17,9 +17,6 @@ if(isset($data)){
     $email_id = $data['email_id'];
     $updated_date= date('Y-m-d h:i:s');
     $updated_by = "1";
-
- }
-
 $query = "UPDATE `sme_list` SET name='$name',phone_number='$phone_number',sap_id='$sapid',email_id='$email_id',updated_date='$updated_date',updated_by='$updated_by' WHERE id='$id'";
 
 $result = mysqli_query($conn,$query);
@@ -28,6 +25,12 @@ if($result){
     $status = "Success";
     $smeList ="" ;
 }else{
+    $errcode = 404;
+    $status = "Failure";
+    $locId = "";
+}
+ }
+else{
     $errcode = 404;
     $status = "Failure";
     $locId = "";

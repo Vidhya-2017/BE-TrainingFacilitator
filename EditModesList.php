@@ -14,9 +14,6 @@ if(isset($data)){
     $mode = $data['mode'];
     $updated_date= date('Y-m-d h:i:s');
     $updated_by = "1";
-
- }
-
 $query = "UPDATE `modes_list` SET mode='$mode',updated_date='$updated_date',updated_by='$updated_by' WHERE id='$id'";
 
 $result = mysqli_query($conn,$query);
@@ -25,6 +22,12 @@ if($result){
     $status = "Success";
     $smeList = "";
 }else{
+    $errcode = 404;
+    $status = "Failure";
+    $locId = "";
+}
+ }
+else{
     $errcode = 404;
     $status = "Failure";
     $locId = "";

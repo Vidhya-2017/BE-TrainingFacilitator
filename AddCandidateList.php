@@ -14,10 +14,8 @@ if(isset($data)){
     $name = $data['name'];
     $phone_number = $data['phone_number'];
     $created_date= date('Y-m-d h:i:s');
-    $created_by = "1";
- }
-
-$query = "INSERT INTO `candidates_list` (sap_id,name,phone_number,created_date,created_by) VALUES ('$sapid','$name','$phone_number','$created_date','$created_by')";
+    $created_by = $data['created_by'];
+    $query = "INSERT INTO `candidates_list` (sap_id,name,phone_number,created_date,created_by) VALUES ('$sapid','$name','$phone_number','$created_date','$created_by')";
 
 $result = mysqli_query($conn,$query);
 if(mysqli_insert_id($conn)>0){
@@ -25,6 +23,13 @@ if(mysqli_insert_id($conn)>0){
     $status = "Success";
     $smeList = mysqli_insert_id($conn);
 }else{
+    $errcode = 404;
+    $status = "Failure";
+    $locId = "";
+}
+
+ }
+else{
     $errcode = 404;
     $status = "Failure";
     $locId = "";
